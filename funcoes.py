@@ -18,17 +18,19 @@ def define_posicoes (linha, coluna, orientacao, tamanho):
 
 
 def preenche_frota(frota, nome, linha, coluna, orientacao, tamanho):
-    for navios in frota.keys():
-        if navios not in frota:
-            frota[navios] = define_posicoes(linha, coluna, orientacao, tamanho)
+    if len (frota)<1:
+        frota[nome] = define_posicoes(linha, coluna, orientacao, tamanho)
+    else: 
+        if nome not in frota:
+            frota[nome] = define_posicoes(linha, coluna, orientacao, tamanho)
         else:
-            a = frota [nome]
-            b = [define_posicoes(linha, coluna, orientacao, tamanho)]
-            frota[nome] = [a,b]
-            #frota[navios] += define_posicoes(linha, coluna, orientacao, tamanho)
-        
-    
+            for navio, lista_posicoes in frota.items():
+                if nome == navio:
+                    a = lista_posicoes
+                    b = [define_posicoes(linha, coluna, orientacao, tamanho)]
+                    c = a+b
+                    frota [nome] = c
+                    
     return frota
-
 
 
