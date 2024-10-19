@@ -19,10 +19,10 @@ def define_posicoes (linha, coluna, orientacao, tamanho):
 
 def preenche_frota(frota, nome, linha, coluna, orientacao, tamanho):
     if len (frota)<1:
-        frota[nome] = define_posicoes(linha, coluna, orientacao, tamanho)
+        frota[nome] = [define_posicoes(linha, coluna, orientacao, tamanho)]
     else: 
         if nome not in frota:
-            frota[nome] = define_posicoes(linha, coluna, orientacao, tamanho)
+            frota[nome] = [define_posicoes(linha, coluna, orientacao, tamanho)]
         else:
             for navio, lista_posicoes in frota.items():
                 if nome == navio:
@@ -32,5 +32,4 @@ def preenche_frota(frota, nome, linha, coluna, orientacao, tamanho):
                     frota [nome] = c
                     
     return frota
-
 
