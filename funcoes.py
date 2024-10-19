@@ -73,7 +73,7 @@ def posiciona_frota (lista_frota):
 
 def afundados(dic_emba, partida):
 
-    cont = 0
+    cont_afundados = 0
     for tipo, posi_embar in dic_emba.items():
         for posi_navio in posi_embar:
             a = True
@@ -83,7 +83,7 @@ def afundados(dic_emba, partida):
                 if partida [linha][coluna] != "X":
                     a = False
             if a == True:
-                cont += 1
-    return cont            
+                cont_afundados += 1
+    return cont_afundados        
 
 
