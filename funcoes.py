@@ -45,3 +45,33 @@ def faz_jogada(tabuleiro,linha, coluna):
     
     return tabuleiro
 
+
+
+def posiciona_frota (lista_frota): 
+    tabuleiro = [
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+
+    posicoes_totais = []
+    for nome, lista_posicoes in lista_frota.items():
+        for lista_de_cada_navio in lista_posicoes:
+            for posicao in lista_de_cada_navio:
+                posicoes_totais.append (posicao)
+    for linha_coluna in posicoes_totais:
+        linha = linha_coluna [0]
+        coluna = linha_coluna [1]
+        tabuleiro [linha] [coluna] = 1
+    return tabuleiro
+
+
+
+
+
