@@ -71,7 +71,19 @@ def posiciona_frota (lista_frota):
         tabuleiro [linha] [coluna] = 1
     return tabuleiro
 
+def afundados(dic_emba, partida):
 
-
+    cont = 0
+    for tipo, posi_embar in dic_emba.items():
+        for posi_navio in posi_embar:
+            a = True
+            for coordenada in posi_navio:
+                linha = coordenada [0]
+                coluna = coordenada [1]
+                if partida [linha][coluna] != "X":
+                    a = False
+            if a == True:
+                cont += 1
+    return cont            
 
 
