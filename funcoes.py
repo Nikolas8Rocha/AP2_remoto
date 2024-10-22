@@ -86,4 +86,18 @@ def afundados(dic_emba, partida):
                 cont_afundados += 1
     return cont_afundados        
 
-
+def posicao_valida  (navios, linha , coluna, orientacao, tamanho):
+    posicoes_navios_tabuleiro = []
+    novo_navio_pos = define_posicoes (linha , coluna, orientacao, tamanho)
+    for tipo_navio, posicoes in navios.items():
+        for navios_pos in posicoes:
+            for posicoes_navio in navios_pos:
+                posicoes_navios_tabuleiro.append(posicoes_navio)
+    for coordenada in novo_navio_pos:
+        if coordenada in posicoes_navios_tabuleiro:
+            return False
+        linha = coordenada [0]
+        coluna = coordenada [1]
+        if linha > 9 or coluna >9:
+            return False
+    return True
