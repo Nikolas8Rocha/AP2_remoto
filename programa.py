@@ -22,7 +22,7 @@ while i < 10:
         valida = funcoes.posicao_valida(frota, linha , coluna,"vertical", 1)
         while valida == False:
             print("Esta posição não está válida!")
-            print("Insira as informações referentes ao navio porta-aviões que possui tamanho 1")
+            print("Insira as informações referentes ao navio submarino que possui tamanho 1")
             linha = int(input("Linha: "))
             coluna = int(input("Coluna: "))
 
@@ -66,7 +66,7 @@ while i < 10:
             valida = funcoes.posicao_valida(frota, linha , coluna, orientacao, 3)
             while valida == False:
                 print("Esta posição não está válida!")
-                print("Insira as informações referentes ao navio porta-aviões que possui tamanho 3")
+                print("Insira as informações referentes ao navio navio-tanque que possui tamanho 3")
                 linha = int(input("Linha: "))
                 coluna = int(input("Coluna: "))
                 orientacao = int(input("[1] Vertical [2] Horizontal "))
@@ -89,7 +89,7 @@ while i < 10:
             valida = funcoes.posicao_valida(frota, linha , coluna, orientacao, 2)
             while valida == False:
                 print("Esta posição não está válida!")
-                print("Insira as informações referentes ao navio porta-aviões que possui tamanho 2")
+                print("Insira as informações referentes ao navio contratorpedeiro que possui tamanho 2")
                 linha = int(input("Linha: "))
                 coluna = int(input("Coluna: "))
                 orientacao = int(input("[1] Vertical [2] Horizontal "))
