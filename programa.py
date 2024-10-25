@@ -38,7 +38,7 @@ for barco in navios:
     if tamanho == 1:
         orientacao = 'vertical'
     else:
-        orientacao = int(input("[1] Vertical [2] Horizontal "))
+        orientacao = int(input("Orientação: [1] Vertical [2] Horizontal "))
         if orientacao == 1:
             orientacao = "vertical"
         else:
@@ -53,7 +53,7 @@ for barco in navios:
         if tamanho == 1:
             orientacao = 'vertical'
         else:
-            orientacao = int(input("[1] Vertical [2] Horizontal "))
+            orientacao = int(input("Orientação: [1] Vertical [2] Horizontal "))
             if orientacao == 1:
                 orientacao = "vertical"
             else:
@@ -85,21 +85,21 @@ frota_oponente = {
 
 lista_oponente = funcoes.posiciona_frota (frota_oponente)
 lista_jogador = funcoes.posiciona_frota (frota)
-
-
+tabuleiros = funcoes.monta_tabuleiros (lista_jogador,lista_oponente)
+print (tabuleiros)
 
 jogando = True
 posicoes_informadas = []
 while jogando == True:
     posicao_atual = []
-    linha_j = int(input("Jogador, qual linha deseja atacar?"))
+    linha_j = int(input("Jogador, qual linha deseja atacar? "))
     while linha_j>9 or linha_j<0:
         print ("Linha inválida!")
-        linha_j = int(input("Jogador, qual linha deseja atacar?"))
-    coluna_j = int(input("Jogador, qual coluna deseja atacar?"))
+        linha_j = int(input("Jogador, qual linha deseja atacar? "))
+    coluna_j = int(input("Jogador, qual coluna deseja atacar? "))
     while coluna_j>9 or coluna_j<0:
         print ("Coluna inválida!")
-        coluna_j = int(input("Jogador, qual coluna deseja atacar?"))
+        coluna_j = int(input("Jogador, qual coluna deseja atacar? "))
     posicao_atual = [linha_j,coluna_j]
     if posicao_atual in posicoes_informadas:
         print ("A posição linha {0} e coluna {1} já foi informada anteriormente!".format(linha_j,coluna_j))
@@ -107,7 +107,7 @@ while jogando == True:
         posicoes_informadas.append(posicao_atual)
         lista_atualizado = funcoes.faz_jogada (lista_oponente,linha_j,coluna_j)
         tabuleiros = funcoes.monta_tabuleiros (lista_jogador,lista_atualizado)
-        print (tabuleiros)
+        
         afundados = funcoes.afundados(frota_oponente,lista_atualizado)
         c = 0
         for barco, posicoes in frota_oponente.items():
@@ -116,3 +116,5 @@ while jogando == True:
         if afundados == c:
             print ("Parabéns! Você derrubou todos os navios do seu oponente!")
             jogando = False
+        if afundados != c:
+            print (tabuleiros)
