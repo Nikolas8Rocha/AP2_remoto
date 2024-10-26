@@ -1,6 +1,6 @@
 import funcoes
 import random
-random.seed(1)
+random.seed(2)
 tabuleiro = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -123,7 +123,7 @@ while jogando == True:
         posicoes_informadas.append(posicao_atual)
         lista_atualizado = funcoes.faz_jogada (lista_oponente,linha_j,coluna_j)
         tabuleiros = funcoes.monta_tabuleiros (lista_jogador,lista_atualizado)
-        #verifica o resultado da jogada
+        
         afundados = funcoes.afundados(frota_oponente,lista_atualizado)
         c = 0
         #condição para a continuação do jogo.
@@ -163,4 +163,4 @@ while jogando == True:
                 jogando = False
             #o tabuleiro atualizado é sempre mostrado depois das ações
             if afundados_op != c_op:
-                print (tabuleiros)
+                print (funcoes.monta_tabuleiros (lista_jogador,lista_atualizado))
