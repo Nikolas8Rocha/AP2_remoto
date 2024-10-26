@@ -1,6 +1,6 @@
 import funcoes
 import random
-random.seed(2)
+random.seed (2)
 tabuleiro = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -122,7 +122,6 @@ while jogando == True:
         #atualiza o tabuleiro com a jogada
         posicoes_informadas.append(posicao_atual)
         lista_atualizado = funcoes.faz_jogada (lista_oponente,linha_j,coluna_j)
-        tabuleiros = funcoes.monta_tabuleiros (lista_jogador,lista_atualizado)
         
         afundados = funcoes.afundados(frota_oponente,lista_atualizado)
         c = 0
