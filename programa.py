@@ -1,5 +1,6 @@
 import funcoes
 import random
+random.seed (2)
 tabuleiro = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -108,7 +109,6 @@ while jogando == True:
     else:
         posicoes_informadas.append(posicao_atual)
         lista_atualizado = funcoes.faz_jogada (lista_oponente,linha_j,coluna_j)
-        tabuleiros = funcoes.monta_tabuleiros (lista_jogador,lista_atualizado)
         
         afundados = funcoes.afundados(frota_oponente,lista_atualizado)
         c = 0
@@ -138,4 +138,4 @@ while jogando == True:
                 print ("Xi! O oponente derrubou toda a sua frota =(")
                 jogando = False
             if afundados_op != c_op:
-                print (tabuleiros)
+                print (funcoes.monta_tabuleiros (lista_jogador,lista_atualizado))
