@@ -1,4 +1,5 @@
 import funcoes
+import random
 tabuleiro = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -90,6 +91,7 @@ print (tabuleiros)
 
 jogando = True
 posicoes_informadas = []
+posicoes_informadas_op = []
 while jogando == True:
     posicao_atual = []
     linha_j = int(input("Jogador, qual linha deseja atacar? "))
@@ -117,4 +119,23 @@ while jogando == True:
             print ("Parabéns! Você derrubou todos os navios do seu oponente!")
             jogando = False
         if afundados != c:
-            print (tabuleiros)
+            linha_op = random.randint (0,9)
+            coluna_op = random.randint (0,9)
+            ataque_op = [linha_op,coluna_op]
+            while ataque_op in posicoes_informadas_op:
+                linha_op = random.randint (0,9)
+                coluna_op = random.randint (0,9)
+                ataque_op = [linha_op,coluna_op]
+            posicoes_informadas_op.append (ataque_op)
+            print ("Seu oponente está atacando na linha {0} e coluna {1}".format (linha_op, coluna_op))
+            lista_atualizada_op = funcoes.faz_jogada (lista_jogador,linha_op,coluna_op)
+            afundados_op = funcoes.afundados(frota, lista_atualizada_op)
+            c_op = 0
+            for barco, posicoes in frota.items():
+                for posicao in posicoes:
+                    c_op+=1
+            if afundados_op == c_op:
+                print ("Xi! O oponente derrubou toda a sua frota =(")
+                jogando = False
+            if afundados_op != c_op:
+                print (tabuleiros)
